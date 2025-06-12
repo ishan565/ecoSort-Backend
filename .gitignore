@@ -1,0 +1,24 @@
+# .gitignore
+
+# Ignore Python virtual environments
+.venv/
+env/
+venv/
+
+# Node modules (if any)
+node_modules/
+
+# System files
+.DS_Store
+
+# Python cache
+__pycache__/
+
+# Log files
+*.log
+
+# Model files (optional)
+*.h5
+*.pt
+*.pkl
+.venv/
