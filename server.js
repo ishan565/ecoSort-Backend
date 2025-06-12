@@ -3,6 +3,9 @@ const multer = require('multer');
 const sharp = require('sharp');
 const tf = require('@tensorflow/tfjs-node');
 const cors = require('cors');
+app.use(cors({
+  origin: 'https://your-frontend-url.onrender.com',  // Replace with your real frontend URL
+}));
 
 const app = express();
 const port = process.env.PORT || 5001;
