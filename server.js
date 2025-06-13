@@ -2,15 +2,16 @@ const express = require('express');
 const multer = require('multer');
 const sharp = require('sharp');
 const tf = require('@tensorflow/tfjs-node');
+const app = express();
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://your-frontend-url.onrender.com',  // Replace with your real frontend URL
+  origin: 'https://ai-waste-frontend-79il.vercel.app/',  
 }));
 
-const app = express();
+
 const port = process.env.PORT || 5001;
 
-app.use(cors()); // Allow all origins
+
 
 // Multer config
 const upload = multer({
@@ -144,7 +145,7 @@ app.get('/recycling-centers', (req, res) => {
       );
       return { ...center, distance: distance.toFixed(2) + ' km' };
     })
-    .filter((c) => parseFloat(c.distance) <= 10)
+    .filter((c) => parseFloat(c.distance) <= 1000000)
     .sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
 
   res.json(centers);
