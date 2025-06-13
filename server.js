@@ -4,8 +4,11 @@ const sharp = require('sharp');
 const tf = require('@tensorflow/tfjs-node');
 const app = express();
 const cors = require('cors');
+
 app.use(cors({
-  origin: 'https://ai-waste-frontend-79il.vercel.app/',  
+  origin: 'https://ai-waste-frontend-79il.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
 }));
 
 
