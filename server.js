@@ -5,11 +5,21 @@ const tf = require('@tensorflow/tfjs-node');
 const app = express();
 const cors = require('cors');
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://ai-waste-frontend-79il.vercel.app',
+];
+
 app.use(cors({
-  origin: 'https://ai-waste-frontend-79il.vercel.app',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed from this origin'));
+    }
+  },
 }));
+
 
 
 const port = process.env.PORT || 5001;
